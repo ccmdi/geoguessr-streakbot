@@ -20,8 +20,6 @@ class Pano:
         self.zoom = 4
         self.dimensions = None
         self.driving_direction = None
-        self.cache_dir = "panos"
-        os.makedirs(self.cache_dir, exist_ok=True)
 
         if lat is not None and lng is not None:
             self.pano_id = None
@@ -186,15 +184,6 @@ class Pano:
                 except Exception as e:
                     logging.error(f"Error getting metadata: {e}")
                     return None
-    
-    def save(self):
-        """Save both panorama image and metadata to cache"""        
-        base_path = os.path.join(self.cache_dir, self.pano_id)
-        pano_path = f"{base_path}.jpg"
-        
-        # Save panorama image
-        Image.fromarray(self.panorama).save(pano_path)
-
 
     @staticmethod
     def convert_pano_id(pano_id):
