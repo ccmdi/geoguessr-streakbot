@@ -9,6 +9,7 @@ import sqlite3
 from math import radians, sin, cos, sqrt, atan2
 from typing import Self
 import logging
+from config import MAPS
 
 GSV_PANO_URL = "https://geo0.ggpht.com/cbk"
 
@@ -385,10 +386,17 @@ class GameManager:
 
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS maps (
-                    map_id INTEGER PRIMARY KEY,
+                    map_id TEXT PRIMARY KEY,
                     map_name TEXT
                 )
             """)
+
+            for map_id, map_info in MAPS.items():
+                map_name = map_info[0]  # First element is the full name
+                conn.execute("""
+                    INSERT OR IGNORE INTO maps (map_id, map_name)
+                    VALUES (?, ?)
+                """, (map_id, map_name))
             
             # New rounds history table
             conn.execute("""
