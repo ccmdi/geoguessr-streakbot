@@ -1,6 +1,6 @@
 # GeoGuessr Streakbot
 A Discord bot for playing GeoGuessr streaks with friends. Players are shown Street View images and must guess the correct subdivision to maintain their streak. Countries can also be added with a bit of extra work.
-![img/example.png]
+![](img/example.png)
 
 The bot includes:
 * Solo and assisted streaks
