@@ -1,0 +1,9 @@
+*.jpg
+*.png
+.env
+panos/*.json
+__pycache__/
+*.db
+*.log
+*.pem
+venv/

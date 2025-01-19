@@ -1,0 +1,6 @@
+discord.py
+pillow
+numpy
+aiohttp
+opencv-python-headless
+psycopg2-binary==2.9.9
